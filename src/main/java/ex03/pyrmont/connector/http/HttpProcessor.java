@@ -35,6 +35,10 @@ public class HttpProcessor {
   protected StringManager sm =
     StringManager.getManager("ex03.pyrmont.connector.http");
 
+  /**
+   * 核心方法
+   * @param socket 封装成socket的请求
+     */
   public void process(Socket socket) {
     SocketInputStream input = null;
     OutputStream output = null;

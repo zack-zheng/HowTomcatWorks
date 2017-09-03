@@ -23,6 +23,7 @@ public class Request {
             e.printStackTrace();
             i = -1;
         }
+        System.out.println("请求内容："+new String(buffer));
         for (int j = 0; j < i; j++) {
             request.append((char) buffer[j]);
         }

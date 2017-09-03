@@ -21,7 +21,7 @@ public class ServletProcessor1 {
 
         try {
             // create a URLClassLoader
-            URL[] urls = new URL[1];
+            URL[] urls = new URL[1];//urls是一个java.net.URL的对象数组，这些对象指向了加载类时候查找的位置
             URLStreamHandler streamHandler = null;
             File classPath = new File(Constants.WEB_ROOT);
             // the forming of repository is taken from the createClassLoader method in
@@ -54,11 +54,5 @@ public class ServletProcessor1 {
 
     }
 
-    @Test
-    public void test_url() throws IOException {
-        File classPath = new File(Constants.WEB_ROOT);
-        String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString();
-        System.out.println(repository);
 
-    }
 }

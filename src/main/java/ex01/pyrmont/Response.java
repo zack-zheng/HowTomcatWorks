@@ -35,12 +35,11 @@ public class Response {
             if (file.exists()) {
                 fis = new FileInputStream(file);
                 int ch = fis.read(bytes, 0, BUFFER_SIZE);
-                while (ch!=-1) {
+                while (ch != -1) {
                     output.write(bytes, 0, ch);
                     ch = fis.read(bytes, 0, BUFFER_SIZE);
                 }
-            }
-            else {
+            } else {
                 // file not found
                 String errorMessage = "HTTP/1.1 404 File Not Found\r\n" +
                         "Content-Type: text/html\r\n" +
@@ -49,13 +48,11 @@ public class Response {
                         "<h1>File Not Found</h1>";
                 output.write(errorMessage.getBytes());
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // thrown if cannot instantiate a File object
-            System.out.println(e.toString() );
-        }
-        finally {
-            if (fis!=null)
+            System.out.println(e.toString());
+        } finally {
+            if (fis != null)
                 fis.close();
         }
     }

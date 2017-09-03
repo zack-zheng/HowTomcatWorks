@@ -9,8 +9,11 @@ import org.apache.catalina.util.StringManager;
  * Extends InputStream to be more efficient reading lines during HTTP
  * header processing.
  *
+ *
  * @author <a href="mailto:remm@apache.org">Remy Maucherat</a>
  * @deprecated
+ *
+ *
  */
 public class SocketInputStream extends InputStream {
 
@@ -468,7 +471,10 @@ public class SocketInputStream extends InputStream {
             if (pos >= count)
                 return -1;
         }
-        return buf[pos++] & 0xff;
+
+        int i = buf[pos++] & 0xff;
+        System.out.println(i);
+        return i;
     }
 
 
@@ -527,7 +533,9 @@ public class SocketInputStream extends InputStream {
         throws IOException {
         pos = 0;
         count = 0;
+        System.out.println(new String(buf));
         int nRead = is.read(buf, 0, buf.length);
+        System.out.println(new String(buf));
         if (nRead > 0) {
             count = nRead;
         }
